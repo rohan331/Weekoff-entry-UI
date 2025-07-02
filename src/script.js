@@ -4,6 +4,17 @@ const toggle = document.getElementById("halfDayToggle");
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const weekLabels = ["All", "1st", "2nd", "3rd", "4th", "5th"];
 
+document.getElementById("workDate").addEventListener("change", (e) => {
+  const selected = new Date(e.target.value); // "YYYY-MM-DD"
+  const day = selected.getDay(); // 0–6 (Sun–Sat)
+  const date = selected.getDate(); // 1–31
+  const month = selected.getMonth() + 1; // 1–12
+  const year = selected.getFullYear();
+
+  console.log({ day, date, month, year });
+});
+
+
 function toggleDropdown(checkbox) {
   const container = checkbox.parentElement;
   const dropdown = container.querySelector(".dropdown");
@@ -108,3 +119,18 @@ toggle.checked ? renderDropdownGrid() : renderCheckboxGrid();
 toggle.addEventListener("change", () => {
   toggle.checked ? renderDropdownGrid() : renderCheckboxGrid();
 });
+
+// Reset logic on Cancel
+const cancelBtn = document.getElementById("cancelBtn");
+const dateInput = document.getElementById("workDate");
+
+cancelBtn.addEventListener("click", () => {
+  // Reset date picker
+  if (dateInput) {
+    dateInput.value = "";
+  }
+
+  // Reset calendar layout based on current toggle state
+  toggle.checked ? renderDropdownGrid() : renderCheckboxGrid();
+});
+

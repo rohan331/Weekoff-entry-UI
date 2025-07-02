@@ -6,122 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="./src/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-white min-h-screen font-sans p-6">
-  <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-200">
-    
+<body class="bg-gradient-to-br from-blue-50 to-white min-h-screen font-sans p-4 sm:p-6">
+  <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-gray-200">
+
     <!-- Header -->
-    <div class="flex justify-between items-center mb-6 border-b pb-4">
-      <h2 class="text-2xl font-bold text-gray-800">📅 Add Work Calendar</h2>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 border-b pb-4">
+      <h2 class="text-2xl font-bold text-gray-800 text-center sm:text-left">📅 Add Work Calendar</h2>
       <button class="text-gray-400 hover:text-gray-600 text-2xl font-bold transition duration-200">×</button>
     </div>
 
-   <!-- Date Selector Section -->
-<div class="flex flex-col items-center mb-6">
-  <div class="grid grid-cols-4 gap-4">
-    
-    <!-- Month -->
-    <div>
-      <label class="block text-sm text-gray-600 mb-1">Month</label>
-      <select class="border rounded px-3 py-2 w-32 text-gray-700">
-        <option>January</option>
-        <option>February</option>
-        <option>March</option>
-        <option>April</option>
-        <option>May</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
-        <option>November</option>
-        <option>December</option>
-      </select>
+    <!-- Date Picker -->
+    <div class="flex justify-center mb-6">
+      <div class="text-center w-full sm:w-auto">
+        <label for="workDate" class="block text-sm text-gray-600 mb-1">Select Date</label>
+        <input
+          type="date"
+          id="workDate"
+          class="border rounded px-4 py-2 text-gray-700 w-full sm:w-64 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
     </div>
-
-    <!-- Date -->
-    <div>
-      <label class="block text-sm text-gray-600 mb-1">Date</label>
-      <select class="border rounded px-3 py-2 w-24 text-gray-700">
-        <!-- Static 1–31 options -->
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-        <option>21</option>
-        <option>22</option>
-        <option>23</option>
-        <option>24</option>
-        <option>25</option>
-        <option>26</option>
-        <option>27</option>
-        <option>28</option>
-        <option>29</option>
-        <option>30</option>
-        <option>31</option>
-      </select>
-    </div>
-
-    <!-- Day -->
-    <div>
-      <label class="block text-sm text-gray-600 mb-1">Day</label>
-      <select class="border rounded px-3 py-2 w-28 text-gray-700">
-        <option>Sunday</option>
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday</option>
-      </select>
-    </div>
-
-    <!-- Year -->
-    <div>
-      <label class="block text-sm text-gray-600 mb-1">Year</label>
-      <select class="border rounded px-3 py-2 w-28 text-gray-700">
-        <option>2024</option>
-        <option>2025</option>
-        <option>2026</option>
-        <option>2027</option>
-      </select>
-    </div>
-
-  </div>
-</div>
-
-
 
     <!-- Toggle -->
-    <div class="flex items-center mb-6 space-x-3">
+    <div class="flex flex-wrap items-center justify-center sm:justify-start mb-6 gap-2 sm:gap-3">
       <input type="checkbox" id="halfDayToggle" class="form-checkbox h-5 w-5 text-blue-600 transition" />
-      <label for="halfDayToggle" class="text-gray-700 text-lg font-medium">Half working day & half weekend</label>
+      <label for="halfDayToggle" class="text-gray-700 text-base sm:text-lg font-medium">Half working day & half weekend</label>
     </div>
 
-    <!-- Calendar Grid -->
-    <div id="calendarGrid" class="overflow-x-auto mb-6 rounded-md border border-gray-200 shadow-sm bg-white"></div>
+    <!-- Responsive Calendar Container -->
+    <div class="overflow-x-auto rounded-md border border-gray-200 shadow-sm bg-white mb-6">
+      <div id="calendarGrid" class="min-w-[700px] sm:min-w-full"></div>
+    </div>
 
     <!-- Footer -->
-    <div>
-      <p class="text-sm text-gray-500 mb-2">Calendar year definition</p>
-      <div class="flex gap-4">
+    <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+      <p class="text-sm text-gray-500">Calendar year definition</p>
+      <div class="flex gap-4 flex-wrap justify-center sm:justify-end">
         <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded transition">Save</button>
-        <button class="border border-gray-300 hover:bg-gray-100 text-gray-700 px-6 py-2 rounded transition">Cancel</button>
+        <button id="cancelBtn" class="border border-gray-300 hover:bg-gray-100 text-gray-700 px-6 py-2 rounded transition">Cancel</button>
       </div>
     </div>
   </div>

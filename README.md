@@ -28,3 +28,14 @@ We need to create a new UI layout based on a given reference design using HTML, 
 3. **JavaScript**:
    - Add JavaScript for any dynamic elements (e.g., dropdowns, modals, carousels).
    - When half working day checkbox is checked then show the dropdown.
+
+******************update that i have done in this project******************
+1. i have added the html structure as per given reference image with the small chages, that when we click in the half working day & half weekend checkbox the dropdown will be shown only when we click in the box present inside the weekoff entry form .
+2. i have added the tailwind css for layout and styling.
+3. i have added the javascript for dynamic elements.
+4. i have added the responsive design for mobile, tablet, and desktop views.
+5. i have added the date picker for the date input field.
+6. i have added the dropdown for the half working day checkbox.
+7. i have added the feature that when we select the "ALL" data filed from the weekoff entry form the remaining all data field present in same row also get selected.
+8. i have added the submit button for the form.
+9. i have added the reset button for the form(i.e a cancle button).
