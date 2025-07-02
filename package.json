@@ -1,0 +1,24 @@
+{
+  "name": "weekoff-entry-ui",
+  "version": "1.0.0",
+  "description": "**Add UI Layout Based on Given Reference Images Using HTML, CSS, Tailwind, and JavaScript**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohan331/Weekoff-entry-UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohan331/Weekoff-entry-UI/issues"
+  },
+  "homepage": "https://github.com/rohan331/Weekoff-entry-UI#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
